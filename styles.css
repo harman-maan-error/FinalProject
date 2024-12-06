@@ -5,7 +5,10 @@ body {
     background-color: #f4f4f9;
 }
 
-
+a{
+    display-style:none;
+    color: Hotpink;
+}
 
 header {
     background: #333;
