@@ -5,6 +5,11 @@ body {
     background-color: #f4f4f9;
 }
 
+a{
+    display-style:none;
+    color:white;
+}
+
 header {
     background: #333;
     color: #fff;
