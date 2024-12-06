@@ -1,0 +1,244 @@
+body {
+    font-family: Arial , sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background: #333;
+    color: #fff;
+    border: none;
+}
+
+#book-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+#book-list li {
+    background: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* css for Musicifyy main page */
+
+.library-container {
+    display: flex;
+    padding: 20px;
+}
+
+.song-list {
+    flex: 0 0 60%; 
+    overflow-y: auto;
+    padding-right: 20px;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.search-bar input {
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    font-size: 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.song-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.song-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.details-panel {
+    flex: 0 0 40%; 
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    display: none; 
+    flex-direction: column;
+}
+
+.details-panel.active {
+    display: flex; 
+}
+
+.details-panel img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.details-panel h3 {
+    margin-bottom: 10px;
+}
+
+.details-panel p {
+    margin-bottom: 5px;
+}
+
+.registration-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.form-section {
+    flex: 0 0 55%;
+}
+
+.image-section {
+    flex: 0 0 40%; 
+    text-align: center;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 768px) {
+    .registration-container {
+        flex-direction: column;
+    }
+
+    .form-section, .image-section {
+        flex: 1 1 auto;
+        width: 100%;
+    }
+
+    .image-section {
+        margin-top: 20px;
+    }
+
+    body {
+        font-size: 14px; 
+    }
+
+    header, footer {
+        padding: 8px 0;
+        font-size: 16px; 
+    }
+
+    .form-container {
+        width: 90%; 
+        margin: 0 auto;
+    }
+
+    .library-container {
+        flex-direction: column; 
+    }
+
+    .song-list {
+        flex: 1 1 auto;
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .details-panel {
+        flex: 1 1 auto;
+        display: none; 
+    }
+
+    .search-bar input {
+        max-width: 90%;
+    }
+
+    .registration-container {
+        flex-direction: column; 
+    }
+
+    .form-section, .image-section {
+        flex: 1 1 auto;
+        width: 100%;
+    }
+
+    .image-section {
+        margin-top: 20px;
+    }
+
+    .song-item {
+        flex-direction: column; 
+        text-align: center;
+    }
+
+    .song-item img {
+        margin-bottom: 10px;
+    }
+}
+
+

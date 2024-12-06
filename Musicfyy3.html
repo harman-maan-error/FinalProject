@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musicfyy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Musicfyy!</h1>
+    </header>
+    <main class="library-container">
+        <div class="song-list">
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search Songs here! - click songs for detail! ">
+            </div>
+            <ul id="songs">
+            </ul>
+        </div>
+        <div id="details-panel" class="details-panel">
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Musicfyy! </p>
+    </footer>
+    <script>
+        let songs = [
+            { title: " Maa hundi eh " , artist: " Kuldeep Manak  ", description: " Song from Manak dedicating for mothers ", cover: "manak.webp" , link: "https://www.youtube.com/watch?v=d-BRyn6aS78" },
+            { title: "Why Arjan? " , artist: "Arjan Dhillion ", description: " A sad Song from singer Arjan Dhillion. ", cover: "whyarjan.jpg" , link: "https://www.youtube.com/watch?v=uf8dBOJt5xk" },
+            { title: "Kohra", artist: "Babbu Maan", description: "Legendry artist - Maan Saab .", cover: "kohra.jpg" , link: "https://www.youtube.com/watch?v=3Oi9eq_0zNU"},
+            { title: "Bganiya Raatan", artist: "Arjan Dhillion", description: " Arjan Arjan rahe krda , mitra da fan ohda nikka jo bro! ", cover: "arjan1.jpg" , link: "https://www.youtube.com/watch?v=QP0g1k5kakQ"},
+            { title: "Marr Mitti", artist: "Balkaar Sidhuu", description: " Phulkaari , chann ve -- legendry songs from him!!", cover: "marrmitti.jpg" , link: "https://www.youtube.com/watch?v=p_bErSmgtkg"},
+            { title: " Taare " , artist: " Sidhu Moosewala ", description: " A sad Song from Sidhu ! ", cover: "sidhu.jpg" , link: "https://www.youtube.com/watch?v=yIiAyoLZ9U0" },
+            { title: "Phulkaari", artist: "Balkaar Sidhu ", description: " old skool song .", cover: "sidhu2.jpg" , link: "https://www.youtube.com/watch?v=KMRXt03noXI"},
+            { title: "Zigana", artist: "Arjan Dhillion", description: " Arjan Arjan rahe krda , mitra da fan ohda nikka jo bro! ", cover: "arjan3.jpg" , link: "https://www.youtube.com/watch?v=6N10Al8P1zg" },
+            { title: "Old Me", artist: "Arjan Dhillion ", description: " ve m hun oh kithe reh gi , jinnu tu chete krda eh!", cover: "oldme.jpg", link: "https://www.youtube.com/watch?v=nVjhbPFA4JU" },
+            { title: "Never Ever " , artist: "Arjan Dhillion ", description: " GYM Song from singer Arjan Dhillion. ", cover: "never.jpg", link: "https://www.youtube.com/watch?v=vx_P1L3nXdU" }
+        ];
+
+        let songListElement = document.getElementById('songs');
+        let detailsPanel = document.getElementById('details-panel');
+
+
+        function renderSongs(filteredSongs = songs) {
+            songListElement.innerHTML = '';
+            filteredSongs.forEach(song => {
+                let li = document.createElement('li');
+                li.className = 'song-item';
+                li.innerHTML = `
+                    <img src="${song.cover}" alt="${song.title}">
+                    <div>
+                        <h4>${song.title}</h4>
+                        <p>${song.artist}</p>
+                    </div>
+                `;
+                li.onclick = () => showDetails(song);
+                songListElement.appendChild(li);
+            });
+        }
+
+
+        function showDetails(song) {
+            detailsPanel.innerHTML = `
+                <img src="${song.cover}" alt="${song.title}">
+                <h3>${song.title}</h3>
+                <p><strong>Artist:</strong> ${song.artist}</p>
+                <a href="${song.link}">  Listen here! </a>
+                <p>${song.description}</p>
+            `;
+            detailsPanel.classList.add('active');
+        }
+
+
+        document.getElementById('search').addEventListener('input', function () {
+            let searchText = this.value.toLowerCase();
+            let filteredSongs = songs.filter(song =>
+                song.title.toLowerCase().includes(searchText) ||
+                song.artist.toLowerCase().includes(searchText)
+            );
+            renderSongs(filteredSongs);
+        });
+
+        renderSongs();
+    </script>
+</body>
+</html>

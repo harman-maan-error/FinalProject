@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Create an Musicfyy Account! </h1>
+    </header>
+    <main class="registration-container">
+        <div class="form-section">
+            <form id="registration-form">
+                <h2>Register</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="UserName">User Name</label>
+                <input type="text" id="UserName" name="UserName" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="index.html">Sign In Here</a></p>
+        </div>
+        <div class="image-section">
+            <img src="Musicfyy4.jpg" alt="Hii ">
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Musicfyy </p>
+    </footer>
+    <script>
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let name = document.getElementById('name').value;
+            let favoriteGenre = document.getElementById('UserName').value;
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+
+            let userRecords = JSON.parse(localStorage.getItem('users')) || [];
+            if (userRecords.find(user => user.email === email)) {
+                alert("This email is already registered!");
+            } else {
+                userRecords.push({ name, favoriteGenre, email, password });
+                localStorage.setItem('users', JSON.stringify(userRecords));
+                alert("Registration Successful!");
+                window.location.href = "index.html";
+            }
+        });
+    </script>
+</body>
+</html>
